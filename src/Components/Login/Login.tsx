@@ -67,16 +67,16 @@ const Login = () => {
       <div className="login_section">
         <Form className="form" onSubmit={onSubmit}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>{t("Email")}</Form.Label>
+            <Form.Label>{t("email")}</Form.Label>
             <Form.Control
               type="email"
-              placeholder={t("Enter your email address")}
+              placeholder={t("enter_your_email_address")}
               onChange={emailHandler}
             />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>{t("Password")}</Form.Label>
+            <Form.Label>{t("password")}</Form.Label>
             <Form.Control
               type="password"
               placeholder="**********"
@@ -84,7 +84,7 @@ const Login = () => {
             />
           </Form.Group>
           <Button variant="dark" className="button" type="submit">
-            {t("LOGIN")}
+            {t("login")}
           </Button>
         </Form>
       </div>
