@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button, Form } from "react-bootstrap";
 import Tracker from "../../assets/images/Icon.png";
@@ -10,7 +10,7 @@ import Language from "../Language/Language";
 
 const Login = () => {
   const { t } = useTranslation();
-  //   const navigate = useNavigate();
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const emailHandler = (event: any) => {
@@ -31,11 +31,11 @@ const Login = () => {
       )
       .then((response: any) => {
         console.log(response);
-        // navigate("/create_issue");
+        navigate("/create_issue");
       })
       .catch((error: any) => {
         console.log(error.response.data["error"]);
-        // navigate("/");
+        navigate("/");
       });
   };
   return (

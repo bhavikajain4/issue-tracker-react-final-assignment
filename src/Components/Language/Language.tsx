@@ -22,7 +22,7 @@ const languages = [
   },
 ];
 
-function Language() {
+function Language(props: any) {
   const { t } = useTranslation();
 
   useEffect(() => {

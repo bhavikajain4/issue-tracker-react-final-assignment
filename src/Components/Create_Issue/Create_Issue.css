@@ -1,0 +1,99 @@
+.h1-create-issue-page {
+  height: 40px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 34px;
+  line-height: 40px;
+  letter-spacing: 0.25px;
+  color: #1d262d;
+}
+.content-container-create-issue {
+  margin-left: 3%;
+  margin-top: 3%;
+}
+.issue-container-create-issue {
+  display: flex;
+}
+.input-container-create-issue {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2%;
+}
+.summary,
+.description,
+.story {
+  width: 61vw;
+  height: 52px;
+  background: #f7f8fa;
+  border: none;
+  border-bottom: 1px solid #000;
+}
+.select {
+  width: 28vw;
+  height: 52px;
+  background: #f7f8fa;
+  border: none;
+  border-bottom: 1px solid #000;
+}
+.select-input {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 10%;
+}
+.button {
+  display: flex;
+  justify-content: space-evenly;
+  width: 70vw;
+  margin-top: 2%;
+}
+.reset,
+.create {
+  border: 1px solid #1d262d;
+  padding: 10px 80px;
+  border-radius: 5%;
+  background: #fff;
+}
+.create {
+  color: #fff;
+  background: #1d262d;
+}
+
+.sidebar {
+  width: 30%;
+  height: 100vh;
+  background: #1d262d;
+  padding-top: 5%;
+}
+
+.sidebar a {
+  color: rgb(243, 234, 234);
+  padding: 16px;
+  text-decoration: none;
+  border-radius: 4px;
+  background: #28343e;
+  width: 90%;
+  display: flex;
+  margin: 10px auto 0 auto;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 5%;
+}
+.sideImg {
+  height: 50px;
+  width: 200px;
+  margin: 0 auto;
+  display: flex;
+}
+.link-div {
+  margin-top: 20%;
+}
+.active {
+  border-left: 5px solid #fe7912;
+}
+.link {
+  color: #fe7912;
+  font-size: 16px;
+  margin-bottom: -2px;
+  letter-spacing: 1px;
+}
