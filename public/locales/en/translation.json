@@ -3,5 +3,20 @@
   "enter_your_email_address": "Enter your Email Address",
   "password": "Password",
   "login": "Login",
-  "language": "Language"
+  "language": "Language",
+  "Create User Stories/Tasks/Bugs": "Create User Stories/Tasks/Bugs",
+  "summary": "Summary",
+  "type": "Type",
+  "project": "Project",
+  "description": "Description",
+  "Priority": "Priority",
+  "Assignee": "Assignee",
+  "Tags": "Tags",
+  "Sprint": "Sprint",
+  "storyPoint": "Story Point",
+  "create": "Create",
+  "reset": "Reset",
+  "project_board": "PROJECT BOARD",
+  "create_issues": "CREATE ISSUES",
+  "create_projects": "CREATE PROJECTS"
 }

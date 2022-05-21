@@ -3,5 +3,20 @@
   "enter_your_email_address": "अपना ईमेल पता दर्ज करें",
   "password": "पासवर्ड",
   "login": "लॉग इन करें",
-  "language": "भाषा"
+  "language": "भाषा",
+  "Create User Stories/Tasks/Bugs": "उपयोगकर्ता कहानियां/कार्य/बग बनाएं",
+  "summary": "सारांश",
+  "type": "प्रकार",
+  "project": "परियोजना",
+  "description": "विवरण",
+  "Priority": "प्राथमिकता",
+  "Assignee": "संपत्ति-भागी",
+  "Tags": "टैग",
+  "Sprint": "पूरे वेग से दौड़ना",
+  "storyPoint": "कहानी बिंदु",
+  "create": "सृजन करना",
+  "reset": "रीसेट",
+  "project_board": "परियोजना बोर्ड",
+  "create_issues": "मुद्दे पैदा करें",
+  "create_projects": "प्रोजेक्ट बनाएं"
 }

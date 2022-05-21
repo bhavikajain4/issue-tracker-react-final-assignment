@@ -152,11 +152,11 @@ const Create_Issue = () => {
       <div className="sidebar">
         <img src={Tracker} className="sideImg" alt="" />
         <div className="link-div">
-          <Link to="/dashboard">{t("PROJECT BOARD")}</Link>
+          <Link to="/dashboard">{t("project_board")}</Link>
           <Link to="/create_issue" className="active">
-            <p className="link">{t("CREATE ISSUES")}</p>
+            <p className="link">{t("create_issues")}</p>
           </Link>
-          <Link to="/create_project">{t("CREATE PROJECTS")}</Link>
+          <Link to="/create_project">{t("create_projects")}</Link>
         </div>
         <Language flag={false} />
       </div>
@@ -220,7 +220,7 @@ const Create_Issue = () => {
 
                     <div className="form-row row mb-2">
                       <div className="col">
-                        <label htmlFor="type">type</label>
+                        <label htmlFor="type">{t("type")}</label>
                         <br />
                         <Field
                           name="type"
@@ -244,12 +244,12 @@ const Create_Issue = () => {
                         <ErrorMessage
                           name="type"
                           component="span"
-                          className="error"
+                          className="error error-custom"
                         />
                       </div>
 
                       <div className="col">
-                        <label htmlFor="projectID">project</label>
+                        <label htmlFor="projectID">{t("project")}</label>
                         <br />
                         <Field
                           name="projectID"
@@ -283,7 +283,7 @@ const Create_Issue = () => {
                         <ErrorMessage
                           name="projectID"
                           component="span"
-                          className="error"
+                          className="error error-custom"
                         />
                       </div>
                     </div>
@@ -310,7 +310,7 @@ const Create_Issue = () => {
 
                     <div className="form-row row mb-2">
                       <div className="col">
-                        <label htmlFor="priority">Priority</label>
+                        <label htmlFor="priority">{t("Priority")}</label>
                         <br />
                         <Field
                           name="priority"
@@ -328,12 +328,12 @@ const Create_Issue = () => {
                         <ErrorMessage
                           name="priority"
                           component="span"
-                          className="error"
+                          className="error error-custom"
                         />
                       </div>
 
                       <div className="col">
-                        <label htmlFor="assignee">Assignee</label>
+                        <label htmlFor="assignee">{t("Assignee")}</label>
                         <br />
                         <Field
                           name="assignee"
@@ -353,14 +353,14 @@ const Create_Issue = () => {
                         <ErrorMessage
                           name="assignee"
                           component="span"
-                          className="error"
+                          className="error error-custom"
                         />
                       </div>
                     </div>
 
                     <div className="form-row row mb-2">
                       <div className="col">
-                        <label htmlFor="tags">Tags</label>
+                        <label htmlFor="tags">{t("Tags")}</label>
                         <br />
                         <Field
                           name="tags"
@@ -378,12 +378,12 @@ const Create_Issue = () => {
                         <ErrorMessage
                           name="tags"
                           component="span"
-                          className="error"
+                          className="error error-custom"
                         />
                       </div>
 
                       <div className="col">
-                        <label htmlFor="sprint">Sprint</label>
+                        <label htmlFor="sprint">{t("Sprint")}</label>
                         <br />
                         <Field
                           name="sprint"
@@ -401,7 +401,7 @@ const Create_Issue = () => {
                         <ErrorMessage
                           name="sprint"
                           component="span"
-                          className="error"
+                          className="error error-custom"
                         />
                       </div>
                     </div>
