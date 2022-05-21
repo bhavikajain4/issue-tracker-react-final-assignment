@@ -7,6 +7,7 @@
   line-height: 40px;
   letter-spacing: 0.25px;
   color: #1d262d;
+  white-space: nowrap;
 }
 .content-container-create-issue {
   margin-left: 3%;

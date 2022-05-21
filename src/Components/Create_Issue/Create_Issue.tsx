@@ -6,21 +6,49 @@ import NavBar from "../NavBar/NavBar";
 import Tracker from "../../assets/images/Icon.png";
 import { useTranslation } from "react-i18next";
 import Language from "../Language/Language";
+import { ErrorMessage, Field, Form, Formik } from "formik";
+import * as Yup from "yup";
 
 const Create_Issue = () => {
+  const CreateIssueSchema = Yup.object().shape({
+    summary: Yup.string().required(),
+    type: Yup.number().required(),
+    projectID: Yup.string().required(),
+    description: Yup.string().required(),
+    priority: Yup.number().required(),
+    status: Yup.number().required(),
+    assignee: Yup.string().required(),
+    tags: Yup.string().required(),
+    sprint: Yup.string().required(),
+    storyPoint: Yup.number().required(),
+  });
+
+  const initialValues = {
+    summary: "",
+    type: 0,
+    projectID: "",
+    description: "",
+    priority: 0,
+    status: 0,
+    assignee: "",
+    tags: [],
+    sprint: "",
+    storyPoint: 0,
+  };
+
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [allProjects, setAllProjects] = useState([]);
   const [allUser, setAllUser] = useState([]);
-  const [summary, setSummary] = useState("");
-  const [type, setType] = useState("");
-  const [project, setProject] = useState("");
-  const [description, setDescription] = useState("");
-  const [priority, setPriority] = useState("");
-  const [assignee, setAssignee] = useState("");
-  const [tags, setTags] = useState("");
-  const [sprint, setSprint] = useState("");
-  const [story, setStory] = useState("");
+  // const [summary, setSummary] = useState("");
+  // const [type, setType] = useState("");
+  // const [project, setProject] = useState("");
+  // const [description, setDescription] = useState("");
+  // const [priority, setPriority] = useState("");
+  // const [assignee, setAssignee] = useState("");
+  // const [tags, setTags] = useState("");
+  // const [sprint, setSprint] = useState("");
+  // const [story, setStory] = useState("");
 
   const headers: any = {
     userID:
@@ -30,66 +58,67 @@ const Create_Issue = () => {
   };
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    const issueData = {
-      summary,
-      type,
-      projectID: project,
-      description,
-      priority,
-      status: 1,
-      assignee,
-      tags: [tags],
-      sprint,
-      storyPoint: story,
-    };
-    console.log(issueData);
-    axios
-      .post(
-        "https://hu-22-angular-mockapi-urtjok3rza-wl.a.run.app/issue",
-        issueData,
-        {
-          headers: headers,
-        }
-      )
-      .then((response: any) => {
-        localStorage.setItem("issueId", response.data["issueId"]);
-        navigate("/dashboard");
-      })
-      .catch((error: any) => {
-        if (summary.trim().length < 5) {
-          alert("Summary must be at least 5 characters");
-        } else if (type.trim().length <= 0) {
-          alert("Type cannot be empty");
-        } else if (project.trim().length <= 0) {
-          alert("Project cannot be empty");
-        } else if (description.trim().length <= 0) {
-          alert("Description cannot be empty");
-        } else if (priority.trim().length <= 0) {
-          alert("Priority cannot be empty");
-        } else if (assignee.trim().length <= 0) {
-          alert("Assignee cannot be empty");
-        } else if (tags.trim().length <= 0) {
-          alert("Tags cannot be empty");
-        } else if (sprint.trim().length <= 0) {
-          alert("Sprint cannot be empty");
-        } else if (story.trim().length <= 0) {
-          alert("Story must be between 1-13");
-        }
-        console.log(error.response.data.message);
-      });
   };
-  const handleReset = (event: any) => {
-    event.preventDefault();
-    setSummary("");
-    setType("");
-    setProject("");
-    setDescription("");
-    setPriority("");
-    setAssignee("");
-    setTags("");
-    setSprint("");
-    setStory("");
-  };
+  // const issueData = {
+  //   summary,
+  //   type,
+  //   projectID: project,
+  //   description,
+  //   priority,
+  //   status: 1,
+  //   assignee,
+  //   tags: [tags],
+  //   sprint,
+  //   storyPoint: story,
+  // };
+  // console.log(issueData);
+  //   axios
+  //     .post(
+  //       "https://hu-22-angular-mockapi-urtjok3rza-wl.a.run.app/issue",
+  //       issueData,
+  //       {
+  //         headers: headers,
+  //       }
+  //     )
+  //     .then((response: any) => {
+  //       localStorage.setItem("issueId", response.data["issueId"]);
+  //       navigate("/dashboard");
+  //     })
+  //     .catch((error: any) => {
+  //       if (summary.trim().length < 5) {
+  //         alert("Summary must be at least 5 characters");
+  //       } else if (type.trim().length <= 0) {
+  //         alert("Type cannot be empty");
+  //       } else if (project.trim().length <= 0) {
+  //         alert("Project cannot be empty");
+  //       } else if (description.trim().length <= 0) {
+  //         alert("Description cannot be empty");
+  //       } else if (priority.trim().length <= 0) {
+  //         alert("Priority cannot be empty");
+  //       } else if (assignee.trim().length <= 0) {
+  //         alert("Assignee cannot be empty");
+  //       } else if (tags.trim().length <= 0) {
+  //         alert("Tags cannot be empty");
+  //       } else if (sprint.trim().length <= 0) {
+  //         alert("Sprint cannot be empty");
+  //       } else if (story.trim().length <= 0) {
+  //         alert("Story must be between 1-13");
+  //       }
+  //       console.log(error.response.data.message);
+  //     });
+  // };
+  // const handleReset = (event: any) => {
+  //   event.preventDefault();
+  //   setSummary("");
+  //   setType("");
+  //   setProject("");
+  //   setDescription("");
+  //   setPriority("");
+  //   setAssignee("");
+  //   setTags("");
+  //   setSprint("");
+  //   setStory("");
+  // };
 
   useEffect(() => {
     async function getRes() {
@@ -129,10 +158,257 @@ const Create_Issue = () => {
       <div>
         <NavBar flag={false} />
         <div className="content-container-create-issue">
-          <h1 className="h1-create-issue-page">
+          {/* <h1 className="h1-create-issue-page">
             {t("Create User Stories/Tasks/Bugs")}
-          </h1>
-          <form onSubmit={handleSubmit} onReset={handleReset}>
+          </h1> */}
+          <Formik
+            initialValues={initialValues}
+            validationSchema={CreateIssueSchema}
+            onSubmit={(values) => {
+              console.log(values);
+            }}
+          >
+            {(formik) => {
+              const { errors, touched, isValid, dirty } = formik;
+              return (
+                <div className="container">
+                  <h1 className="mb-5 h1-create-issue-page">
+                    {t("Create User Stories/Tasks/Bugs")}
+                  </h1>
+                  <Form>
+                    <div className="form-row mb-3">
+                      <label htmlFor="summary">{t("summary")}</label>
+                      <br />
+                      <Field
+                        type="text"
+                        name="summary"
+                        id="summary"
+                        placeholder={t("summary")}
+                        className={
+                          errors.summary && touched.summary
+                            ? "input-error && input-container-login"
+                            : "input-container-login"
+                        }
+                      />
+                      <br />
+                      <ErrorMessage
+                        name="summary"
+                        component="span"
+                        className="error error-custom"
+                      />
+                    </div>
+
+                    <div className="form-row row mb-3">
+                      <div className="col">
+                        <label htmlFor="type">type</label>
+                        <br />
+                        <Field name="type" as="select">
+                          <option
+                            selected
+                            disabled
+                            hidden
+                            value=""
+                            style={{ display: "none" }}
+                          >
+                            {t("Select")}
+                          </option>
+                          <option value="1">{t("BUG")}</option>
+                          <option value="2">{t("TASK")}</option>
+                          <option value="3">{t("STORY")}</option>
+                        </Field>
+                        <br />
+                        <ErrorMessage
+                          name="type"
+                          component="span"
+                          className="error"
+                        />
+                      </div>
+
+                      <div className="col">
+                        <label htmlFor="projectID">project</label>
+                        <br />
+                        <Field name="projectID" as="select">
+                          <option
+                            selected
+                            disabled
+                            hidden
+                            value=""
+                            style={{ display: "none" }}
+                          >
+                            {t("Select")}
+                          </option>
+                          {allProjects.map((project) => (
+                            <option
+                              key={project["projectID"]}
+                              value={project["projectID"]}
+                            >
+                              {project["projectID"]}
+                            </option>
+                          ))}
+                        </Field>
+                        <br />
+                        <ErrorMessage
+                          name="projectID"
+                          component="span"
+                          className="error"
+                        />
+                      </div>
+                    </div>
+                    <div className="form-row mb-3">
+                      <label htmlFor="description">{t("description")}</label>
+                      <br />
+                      <Field
+                        type="text"
+                        name="description"
+                        id="description"
+                        placeholder={t("description")}
+                        className={
+                          errors.description && touched.description
+                            ? "input-error && input-container-login"
+                            : "input-container-login"
+                        }
+                      />
+                      <br />
+                      <ErrorMessage
+                        name="description"
+                        component="span"
+                        className="error error-custom"
+                      />
+                    </div>
+
+                    <div className="form-row row mb-3">
+                      <div className="col">
+                        <label htmlFor="priority">Priority</label>
+                        <br />
+                        <Field name="priority" as="select">
+                          <option selected disabled hidden value="">
+                            {t("Select")}
+                          </option>
+                          <option value="1">LOW</option>
+                          <option value="2">MEDIUM</option>
+                          <option value="3">HIGH</option>
+                        </Field>
+                        <br />
+                        <ErrorMessage
+                          name="priority"
+                          component="span"
+                          className="error"
+                        />
+                      </div>
+
+                      <div className="col">
+                        <label htmlFor="assignee">Assignee</label>
+                        <br />
+                        <Field name="assignee" as="select">
+                          <option selected disabled hidden value="">
+                            {t("Select")}
+                          </option>
+                          {allUser.map((user) => (
+                            <option key={user["id"]} value={user["id"]}>
+                              {user["name"]}
+                            </option>
+                          ))}
+                        </Field>
+                        <br />
+                        <ErrorMessage
+                          name="assignee"
+                          component="span"
+                          className="error"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="form-row row mb-3">
+                      <div className="col">
+                        <label htmlFor="tags">Tags</label>
+                        <br />
+                        <Field name="tags" as="select">
+                          <option selected disabled hidden value="">
+                            {t("Select")}
+                          </option>
+                          <option>Tag1</option>
+                          <option>Tag2</option>
+                          <option>Tag3</option>
+                        </Field>
+                        <br />
+                        <ErrorMessage
+                          name="tags"
+                          component="span"
+                          className="error"
+                        />
+                      </div>
+
+                      <div className="col ">
+                        <label htmlFor="sprint">Sprint</label>
+                        <br />
+                        <Field name="sprint" as="select">
+                          <option selected disabled hidden value="">
+                            {t("Select")}
+                          </option>
+                          <option>Sprint 1</option>
+                          <option>Sprint 2</option>
+                          <option>Sprint 3</option>
+                        </Field>
+                        <br />
+                        <ErrorMessage
+                          name="sprint"
+                          component="span"
+                          className="error"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="form-row mb-3">
+                      <label htmlFor="storyPoint">{t("storyPoint")}</label>
+                      <br />
+                      <Field
+                        type="text"
+                        name="storyPoint"
+                        id="storyPoint"
+                        placeholder={t("storyPoint")}
+                        className={
+                          errors.storyPoint && touched.storyPoint
+                            ? "input-error && input-container-login"
+                            : "input-container-login"
+                        }
+                      />
+                      <br />
+                      <ErrorMessage
+                        name="storyPoint"
+                        component="span"
+                        className="error error-custom"
+                      />
+                    </div>
+                    <div className="row">
+                      <button
+                        type="submit"
+                        className={
+                          !(dirty && isValid)
+                            ? "disabled-btn login-button-login-page col  "
+                            : "login-button-login-page col "
+                        }
+                        disabled={!(dirty && isValid)}
+                      >
+                        {t("create")}
+                      </button>
+
+                      <button
+                        className={
+                          !(dirty && isValid)
+                            ? "disabled-btn login-button-login-page col"
+                            : "login-button-login-page col "
+                        }
+                        disabled={!(dirty && isValid)}
+                      >
+                        {t("reset")}
+                      </button>
+                    </div>
+                  </Form>
+                </div>
+              );
+            }}
+          </Formik>
+          {/* <form onSubmit={handleSubmit} onReset={handleReset}>
             <div className="input-container-create-issue">
               <label htmlFor="summary">{t("Summary")}</label>
               <input
@@ -295,7 +571,7 @@ const Create_Issue = () => {
                 {t("CREATE")}
               </button>
             </div>
-          </form>
+          </form> */}
         </div>
       </div>
     </div>
