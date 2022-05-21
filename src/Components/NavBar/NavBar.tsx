@@ -18,18 +18,22 @@ const NavBar = (props: any) => {
   };
   return (
     <React.Fragment>
-      <div className="header">
+      <div className="header-navbar">
         {props.flag && (
           <div>
-            <input type="search" className="search" placeholder="Search" />
+            <input
+              type="search"
+              className="search-navbar"
+              placeholder="Search"
+            />
           </div>
         )}
-        {!props.flag && <div className="search"></div>}
-        <div className="user">
+        {!props.flag && <div className="search-navbar"></div>}
+        <div className="user-navbar">
           <p>Anjali Gupta</p>
           {/* <img src={profile} alt="" onClick={handleProfile} /> */}
           {showDiv && (
-            <div className="info" onClick={handleLogout}>
+            <div className="info-navbar" onClick={handleLogout}>
               {/* <img src={logout} alt="" /> Logout */}
             </div>
           )}

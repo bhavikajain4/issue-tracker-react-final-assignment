@@ -11,7 +11,7 @@
 }
 .content-container-create-issue {
   margin-left: 3%;
-  margin-top: 3%;
+  /* margin-top: 3%; */
 }
 .issue-container-create-issue {
   display: flex;
@@ -97,4 +97,37 @@
   font-size: 16px;
   margin-bottom: -2px;
   letter-spacing: 1px;
+}
+
+.input-container-create-issue {
+  background-color: #f7f8fa;
+  border: none;
+  border-bottom: 2px solid #777778;
+  padding: 1%;
+  width: 100%;
+}
+.dropdown-container-create-issue {
+  /* width: 100%; */
+  border: none;
+  border-bottom: 2px solid #777778;
+  padding: 1.5%;
+  background-color: #f7f8fa;
+  width: 100%;
+}
+
+.create-button-create-issue-page {
+  background-color: #1d262d;
+  color: #fff;
+  padding: 1%;
+  margin-right: 5%;
+  margin-left: 5%;
+  margin-top: 2%;
+}
+.reset-button-create-issue-page {
+  color: #1d262d;
+  background-color: #fff;
+  margin-right: 5%;
+  margin-left: 5%;
+  padding: 1%;
+  margin-top: 2%;
 }

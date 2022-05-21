@@ -1,10 +1,10 @@
-.header {
+.header-navbar {
   width: 80vw;
   height: 80px;
   background: #f7f8fa;
   display: flex;
 }
-.search {
+.search-navbar {
   border: none;
   border-right: 1px solid #000;
   background: #f7f8fa;
@@ -13,24 +13,24 @@
   padding-left: 45px;
   font-size: 20px;
 }
-.search::placeholder {
+.search-navbar::placeholder {
   color: #1d262d;
 }
-.user {
+.user-navbar {
   display: flex;
   justify-content: space-around;
   align-items: center;
   width: 20vw;
 }
-.user img {
+.user-navbar img {
   height: 50px;
   width: 50px;
   cursor: pointer;
 }
-.user p {
+.user-navbar p {
   padding-top: 2%;
 }
-.info {
+.info-navbar {
   position: absolute;
   background: #fff;
   top: 8%;

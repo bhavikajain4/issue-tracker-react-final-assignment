@@ -25,15 +25,15 @@ const Create_Issue = () => {
 
   const initialValues = {
     summary: "",
-    type: 0,
+    type: "",
     projectID: "",
     description: "",
     priority: 0,
     status: 0,
     assignee: "",
-    tags: [],
+    tags: "",
     sprint: "",
-    storyPoint: 0,
+    storyPoint: "",
   };
 
   const { t } = useTranslation();
@@ -142,6 +142,11 @@ const Create_Issue = () => {
     getRes();
   }, []);
 
+  const handleReset = (resetForm: any) => {
+    if (window.confirm("Reset?")) {
+      resetForm();
+    }
+  };
   return (
     <div className="issue-container-create-issue">
       <div className="sidebar">
@@ -158,27 +163,42 @@ const Create_Issue = () => {
       <div>
         <NavBar flag={false} />
         <div className="content-container-create-issue">
-          {/* <h1 className="h1-create-issue-page">
-            {t("Create User Stories/Tasks/Bugs")}
-          </h1> */}
           <Formik
             initialValues={initialValues}
             validationSchema={CreateIssueSchema}
-            onSubmit={(values) => {
+            onSubmit={(values: any, { resetForm }) => {
               console.log(values);
+              resetForm();
+              values.type = Number(values.type);
+              values.priority = Number(values.priority);
+              values.storyPoint = Number(values.storyPoint);
+              values.status = 1;
+              values.tags = Array(values.tags);
+              axios
+                .post(
+                  "https://hu-22-angular-mockapi-urtjok3rza-wl.a.run.app/issue",
+                  values,
+                  {
+                    headers: headers,
+                  }
+                )
+                .then((response: any) => {
+                  localStorage.setItem("issueId", response.data["issueId"]);
+                  navigate("/dashboard");
+                });
             }}
           >
             {(formik) => {
               const { errors, touched, isValid, dirty } = formik;
               return (
                 <div className="container">
-                  <h1 className="mb-5 h1-create-issue-page">
+                  <h1 className="mb-3 h1-create-issue-page">
                     {t("Create User Stories/Tasks/Bugs")}
                   </h1>
                   <Form>
-                    <div className="form-row mb-3">
+                    <div className="form-row mb-2">
                       <label htmlFor="summary">{t("summary")}</label>
-                      <br />
+
                       <Field
                         type="text"
                         name="summary"
@@ -186,8 +206,8 @@ const Create_Issue = () => {
                         placeholder={t("summary")}
                         className={
                           errors.summary && touched.summary
-                            ? "input-error && input-container-login"
-                            : "input-container-login"
+                            ? "input-error && input-container-create-issue"
+                            : "input-container-create-issue"
                         }
                       />
                       <br />
@@ -198,11 +218,15 @@ const Create_Issue = () => {
                       />
                     </div>
 
-                    <div className="form-row row mb-3">
+                    <div className="form-row row mb-2">
                       <div className="col">
                         <label htmlFor="type">type</label>
                         <br />
-                        <Field name="type" as="select">
+                        <Field
+                          name="type"
+                          as="select"
+                          className="dropdown-container-create-issue"
+                        >
                           <option
                             selected
                             disabled
@@ -227,13 +251,22 @@ const Create_Issue = () => {
                       <div className="col">
                         <label htmlFor="projectID">project</label>
                         <br />
-                        <Field name="projectID" as="select">
+                        <Field
+                          name="projectID"
+                          as="select"
+                          className="dropdown-container-create-issue"
+                        >
                           <option
                             selected
                             disabled
                             hidden
                             value=""
                             style={{ display: "none" }}
+                            className={
+                              errors.projectID && touched.projectID
+                                ? "input-error "
+                                : ""
+                            }
                           >
                             {t("Select")}
                           </option>
@@ -254,9 +287,8 @@ const Create_Issue = () => {
                         />
                       </div>
                     </div>
-                    <div className="form-row mb-3">
+                    <div className="form-row mb-2">
                       <label htmlFor="description">{t("description")}</label>
-                      <br />
                       <Field
                         type="text"
                         name="description"
@@ -264,8 +296,8 @@ const Create_Issue = () => {
                         placeholder={t("description")}
                         className={
                           errors.description && touched.description
-                            ? "input-error && input-container-login"
-                            : "input-container-login"
+                            ? "input-error && input-container-create-issue"
+                            : "input-container-create-issue"
                         }
                       />
                       <br />
@@ -276,11 +308,15 @@ const Create_Issue = () => {
                       />
                     </div>
 
-                    <div className="form-row row mb-3">
+                    <div className="form-row row mb-2">
                       <div className="col">
                         <label htmlFor="priority">Priority</label>
                         <br />
-                        <Field name="priority" as="select">
+                        <Field
+                          name="priority"
+                          as="select"
+                          className="dropdown-container-create-issue"
+                        >
                           <option selected disabled hidden value="">
                             {t("Select")}
                           </option>
@@ -299,7 +335,11 @@ const Create_Issue = () => {
                       <div className="col">
                         <label htmlFor="assignee">Assignee</label>
                         <br />
-                        <Field name="assignee" as="select">
+                        <Field
+                          name="assignee"
+                          as="select"
+                          className="dropdown-container-create-issue"
+                        >
                           <option selected disabled hidden value="">
                             {t("Select")}
                           </option>
@@ -318,17 +358,21 @@ const Create_Issue = () => {
                       </div>
                     </div>
 
-                    <div className="form-row row mb-3">
+                    <div className="form-row row mb-2">
                       <div className="col">
                         <label htmlFor="tags">Tags</label>
                         <br />
-                        <Field name="tags" as="select">
+                        <Field
+                          name="tags"
+                          as="select"
+                          className="dropdown-container-create-issue"
+                        >
                           <option selected disabled hidden value="">
                             {t("Select")}
                           </option>
-                          <option>Tag1</option>
-                          <option>Tag2</option>
-                          <option>Tag3</option>
+                          <option>Tag 1</option>
+                          <option>Tag 2</option>
+                          <option>Tag 3</option>
                         </Field>
                         <br />
                         <ErrorMessage
@@ -338,10 +382,14 @@ const Create_Issue = () => {
                         />
                       </div>
 
-                      <div className="col ">
+                      <div className="col">
                         <label htmlFor="sprint">Sprint</label>
                         <br />
-                        <Field name="sprint" as="select">
+                        <Field
+                          name="sprint"
+                          as="select"
+                          className="dropdown-container-create-issue"
+                        >
                           <option selected disabled hidden value="">
                             {t("Select")}
                           </option>
@@ -358,7 +406,7 @@ const Create_Issue = () => {
                       </div>
                     </div>
 
-                    <div className="form-row mb-3">
+                    <div className="form-row mb-2">
                       <label htmlFor="storyPoint">{t("storyPoint")}</label>
                       <br />
                       <Field
@@ -368,7 +416,7 @@ const Create_Issue = () => {
                         placeholder={t("storyPoint")}
                         className={
                           errors.storyPoint && touched.storyPoint
-                            ? "input-error && input-container-login"
+                            ? "input-error && input-container-create-issue"
                             : "input-container-login"
                         }
                       />
@@ -384,8 +432,8 @@ const Create_Issue = () => {
                         type="submit"
                         className={
                           !(dirty && isValid)
-                            ? "disabled-btn login-button-login-page col  "
-                            : "login-button-login-page col "
+                            ? "disabled-btn  create-button-create-issue-page col  "
+                            : " create-button-create-issue-page col "
                         }
                         disabled={!(dirty && isValid)}
                       >
@@ -393,12 +441,13 @@ const Create_Issue = () => {
                       </button>
 
                       <button
+                        type="reset"
+                        onClick={handleReset.bind(null, formik.resetForm)}
                         className={
                           !(dirty && isValid)
-                            ? "disabled-btn login-button-login-page col"
-                            : "login-button-login-page col "
+                            ? "disabled-btn reset-button-create-issue-page col"
+                            : "reset-button-create-issue-page col "
                         }
-                        disabled={!(dirty && isValid)}
                       >
                         {t("reset")}
                       </button>
@@ -408,170 +457,6 @@ const Create_Issue = () => {
               );
             }}
           </Formik>
-          {/* <form onSubmit={handleSubmit} onReset={handleReset}>
-            <div className="input-container-create-issue">
-              <label htmlFor="summary">{t("Summary")}</label>
-              <input
-                type="text"
-                placeholder={t("Add Summary")}
-                className="summary"
-                name="Summary"
-                value={summary}
-                onChange={(event) => setSummary(event.target.value)}
-              />
-            </div>
-            <div className="select-input">
-              <div className="input-container-create-issue">
-                <label htmlFor="select">{t("Type")}</label>
-                <select
-                  className="select"
-                  name="Type"
-                  value={type}
-                  onChange={(event) => setType(event.target.value)}
-                >
-                  <option disabled selected hidden value="">
-                    {t("Select")}
-                  </option>
-                  <option value="1">{t("BUG")}</option>
-                  <option value="2">{t("TASK")}</option>
-                  <option value="3">{t("STORY")}</option>
-                </select>
-              </div>
-              <div className="input-container-create-issue">
-                <label htmlFor="select">{t("Project")}</label>
-                <select
-                  className="select"
-                  name="Project"
-                  value={project}
-                  onChange={(event) => setProject(event.target.value)}
-                >
-                  <option
-                    selected
-                    disabled
-                    hidden
-                    value=""
-                    style={{ display: "none" }}
-                  >
-                    {t("Select")}
-                  </option>
-                  {allProjects.map((project) => (
-                    <option
-                      key={project["projectID"]}
-                      value={project["projectID"]}
-                    >
-                      {project["projectID"]}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            </div>
-            <div className="input-container-create-issue">
-              <label htmlFor="">{t("Description")}</label>
-              <textarea
-                cols={10}
-                rows={4}
-                name="Description"
-                className="description"
-                placeholder={t("Write description")}
-                value={description}
-                onChange={(event) => setDescription(event.target.value)}
-              />
-            </div>
-
-            <div className="select-input">
-              <div className="input-container-create-issue">
-                <label htmlFor="select">{t("Priority")}</label>
-                <select
-                  className="select"
-                  name="Priority"
-                  value={priority}
-                  onChange={(event) => setPriority(event.target.value)}
-                >
-                  <option selected disabled hidden value="">
-                    {t("Select")}
-                  </option>
-                  <option value="1">LOW</option>
-                  <option value="2">MEDIUM</option>
-                  <option value="3">HIGH</option>
-                </select>
-              </div>
-
-              <div className="input-container-create-issue">
-                <label htmlFor="select">{t("Asignee")}</label>
-                <select
-                  className="select"
-                  name="Asignee"
-                  value={assignee}
-                  onChange={(event) => setAssignee(event.target.value)}
-                >
-                  <option selected disabled hidden value="">
-                    {t("Select")}
-                  </option>
-                  {allUser.map((user) => (
-                    <option key={user["id"]} value={user["id"]}>
-                      {user["name"]}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            </div>
-            <div className="select-input">
-              <div className="input-container-create-issue">
-                <label htmlFor="select">{t("Tags")}</label>
-                <select
-                  className="select"
-                  name="Tags"
-                  value={tags}
-                  onChange={(event) => setTags(event.target.value)}
-                >
-                  <option selected disabled hidden value="">
-                    {t("Select")}
-                  </option>
-                  <option>{t("React")}</option>
-                  <option>Hu-22</option>
-                  <option>HashedIn</option>
-                </select>
-              </div>
-
-              <div className="input-container-create-issue">
-                <label htmlFor="select">{t("Sprint")}</label>
-                <select
-                  className="select"
-                  name="Sprint"
-                  value={sprint}
-                  onChange={(event) => setSprint(event.target.value)}
-                >
-                  <option selected disabled hidden value="">
-                    {t("Select")}
-                  </option>
-                  <option>React_1</option>
-                  <option>React_2</option>
-                  <option>React_3</option>
-                </select>
-              </div>
-            </div>
-            <div className="input-container-create-issue">
-              <label htmlFor="">{t("Story Points")}</label>
-              <input
-                type="number"
-                name="Story"
-                min="1"
-                max="12"
-                className="story"
-                placeholder="1,2,3..."
-                value={story}
-                onChange={(event) => setStory(event.target.value)}
-              />
-            </div>
-            <div className="button">
-              <button type="reset" className="reset">
-                {t("RESET")}
-              </button>
-              <button type="submit" className="create">
-                {t("CREATE")}
-              </button>
-            </div>
-          </form> */}
         </div>
       </div>
     </div>
