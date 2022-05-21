@@ -26,7 +26,7 @@ function Language(props: any) {
   const { t } = useTranslation();
 
   useEffect(() => {
-    document.title = t("app_title");
+    document.title = t("Issue Tracker");
   }, [t]);
 
   return (
