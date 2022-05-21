@@ -1,10 +1,11 @@
-.dropdown-custom {
-  width: 10%;
+#dropdown-custom-button {
+  width: 550px;
 }
 
 .language-component-container {
   position: absolute;
-  top: 0;
-  left: 80%;
+  top: 65%;
+  left: 0%;
   z-index: 100;
+  /* width: 50%; */
 }

@@ -2,13 +2,15 @@
   display: flex;
 }
 .sidebar {
-  width: 40%;
+  width: 40% !important;
   height: 100vh;
   color: #fff;
   background: #1d262d;
 }
 .login_section {
   width: 60%;
+  padding-left: 10%;
+  padding-top: 15%;
 }
 .tracker {
   margin: 20% auto 10% auto;
@@ -28,6 +30,25 @@
   margin-top: 25%;
   max-width: 70%;
 }
-.button {
-  width: 100%;
+/* .button {
+  width: 50%;
+} */
+
+.input-container-login {
+  background-color: #f7f8fa;
+  border: none;
+  border-bottom: 2px solid #777778;
+  padding: 1%;
+  width: 80%;
+}
+
+.login-button-login-page {
+  background-color: #1d262d;
+  width: 80%;
+  padding: 1%;
+  color: #fff;
+}
+
+.error-custom {
+  color: red;
 }

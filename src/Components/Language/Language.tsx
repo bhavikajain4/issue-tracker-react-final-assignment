@@ -33,9 +33,8 @@ function Language(props: any) {
     <div className="language-component-container">
       <DropdownButton
         variant="secondary"
-        id="dropdown-basic-button"
+        id="dropdown-custom-button"
         title={t("language")}
-        className="dropdown-custom"
       >
         {/* <Dropdown.ItemText>{t("language")}</Dropdown.ItemText> */}
         {languages.map(({ code, name, country_code }) => (
