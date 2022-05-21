@@ -33,6 +33,9 @@ const Login = () => {
     setPassword(event.target.value);
   };
 
+  if (localStorage.getItem("isAuth") === "true") {
+    window.location.href = "/dashboard";
+  }
   return (
     <div className="login">
       <div className="sidebar">
@@ -53,7 +56,7 @@ const Login = () => {
               )
               .then((response: any) => {
                 console.log(response);
-                navigate("/create_issue");
+                navigate("/dashboard");
               })
               .catch((error: any) => {
                 console.log(error.response.data["error"]);

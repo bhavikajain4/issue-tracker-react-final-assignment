@@ -6,6 +6,8 @@ import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./i18n";
+import { Provider } from "react-redux";
+import store from "./Components/redux/store";
 
 const loadingMarkup = (
   <div className="py-4 text-center">
@@ -19,7 +21,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <Suspense fallback={loadingMarkup}>
     <React.StrictMode>
-      <App />
+      <Provider store={store}>
+        <App />
+      </Provider>
     </React.StrictMode>
   </Suspense>
 );
