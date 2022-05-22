@@ -63,8 +63,10 @@ const Dashboard = () => {
   }, [project]);
   useEffect(() => {
     const assign = [...issues];
+
     assign.map((x) => x.assignee);
     const a = assign.map((x) => x.assignee);
+
     const unique = [...new Map(a.map((obj) => [obj["id"], obj])).values()];
     setAssignees(unique);
   }, [issues]);
