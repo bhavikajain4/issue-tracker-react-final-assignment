@@ -1,4 +1,4 @@
-.text-home {
+.text-home-dashboard {
   height: 40px;
   font-family: "Roboto";
   font-style: normal;
@@ -33,14 +33,15 @@
   border: none;
   border-bottom: 1px solid #000;
 }
-.sidebar {
-  width: 30%;
+.sidebar-dashboard {
+  width: 50%;
   height: 100vh;
   background: #1d262d;
   padding-top: 5%;
+  /* border: 2px solid green; */
 }
 
-.sidebar a {
+.sidebar-dashboard a {
   color: rgb(243, 234, 234);
   padding: 16px;
   text-decoration: none;
@@ -53,19 +54,19 @@
   font-weight: 500;
   margin-top: 5%;
 }
-.sideImg {
+.sideImg-dashboard {
   height: 50px;
   width: 200px;
   margin: 0 auto;
   display: flex;
 }
-.link-div {
+.link-div-dashboard {
   margin-top: 20%;
 }
 .active {
   border-left: 5px solid #fe7912;
 }
-.link {
+.link-dashboard {
   color: #fe7912;
   font-size: 16px;
   margin-bottom: -2px;
@@ -101,7 +102,7 @@
 #priority {
   margin-left: 10%;
 }
-/* .status {
+.status {
   display: flex;
   justify-content: space-around;
   margin-top: 2%;
@@ -113,8 +114,8 @@
   padding-top: 1%;
   line-height: 20px;
   letter-spacing: 0.4px;
-} */
-/* .issue-list {
+}
+.issue-list {
   display: flex;
   flex-direction: column;
-} */
+}

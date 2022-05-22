@@ -40,15 +40,6 @@ const Create_Issue = () => {
   const navigate = useNavigate();
   const [allProjects, setAllProjects] = useState([]);
   const [allUser, setAllUser] = useState([]);
-  // const [summary, setSummary] = useState("");
-  // const [type, setType] = useState("");
-  // const [project, setProject] = useState("");
-  // const [description, setDescription] = useState("");
-  // const [priority, setPriority] = useState("");
-  // const [assignee, setAssignee] = useState("");
-  // const [tags, setTags] = useState("");
-  // const [sprint, setSprint] = useState("");
-  // const [story, setStory] = useState("");
 
   const headers: any = {
     userID:
@@ -59,67 +50,6 @@ const Create_Issue = () => {
   const handleSubmit = (event: any) => {
     event.preventDefault();
   };
-  // const issueData = {
-  //   summary,
-  //   type,
-  //   projectID: project,
-  //   description,
-  //   priority,
-  //   status: 1,
-  //   assignee,
-  //   tags: [tags],
-  //   sprint,
-  //   storyPoint: story,
-  // };
-  // console.log(issueData);
-  //   axios
-  //     .post(
-  //       "https://hu-22-angular-mockapi-urtjok3rza-wl.a.run.app/issue",
-  //       issueData,
-  //       {
-  //         headers: headers,
-  //       }
-  //     )
-  //     .then((response: any) => {
-  //       localStorage.setItem("issueId", response.data["issueId"]);
-  //       navigate("/dashboard");
-  //     })
-  //     .catch((error: any) => {
-  //       if (summary.trim().length < 5) {
-  //         alert("Summary must be at least 5 characters");
-  //       } else if (type.trim().length <= 0) {
-  //         alert("Type cannot be empty");
-  //       } else if (project.trim().length <= 0) {
-  //         alert("Project cannot be empty");
-  //       } else if (description.trim().length <= 0) {
-  //         alert("Description cannot be empty");
-  //       } else if (priority.trim().length <= 0) {
-  //         alert("Priority cannot be empty");
-  //       } else if (assignee.trim().length <= 0) {
-  //         alert("Assignee cannot be empty");
-  //       } else if (tags.trim().length <= 0) {
-  //         alert("Tags cannot be empty");
-  //       } else if (sprint.trim().length <= 0) {
-  //         alert("Sprint cannot be empty");
-  //       } else if (story.trim().length <= 0) {
-  //         alert("Story must be between 1-13");
-  //       }
-  //       console.log(error.response.data.message);
-  //     });
-  // };
-  // const handleReset = (event: any) => {
-  //   event.preventDefault();
-  //   setSummary("");
-  //   setType("");
-  //   setProject("");
-  //   setDescription("");
-  //   setPriority("");
-  //   setAssignee("");
-  //   setTags("");
-  //   setSprint("");
-  //   setStory("");
-  // };
-
   useEffect(() => {
     async function getRes() {
       const response = await axios.get(
