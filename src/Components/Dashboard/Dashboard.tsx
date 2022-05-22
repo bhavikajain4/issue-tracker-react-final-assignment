@@ -74,10 +74,10 @@ const Dashboard = () => {
         <img src={Tracker} className="sideImg-dashboard" alt="" />
         <div className="link-div-dashboard">
           <Link to="/dashboard" className="active">
-            <p className="link-dashboard">{t("PROJECT BOARD")}</p>
+            <p className="link-dashboard">{t("project_board")}</p>
           </Link>
-          <Link to="/create_issue">{t("CREATE ISSUES")}</Link>
-          <Link to="/create_project">{t("CREATE PROJECTS")}</Link>
+          <Link to="/create_issue">{t("create_issues")}</Link>
+          <Link to="/create_project">{t("create_projects")}</Link>
         </div>
         <Language props={false} />
       </div>
@@ -115,7 +115,7 @@ const Dashboard = () => {
                 </select>
               </div>
               <div className="input-container-dashboard">
-                <label htmlFor="select">{"Project Owner"}</label>
+                <label htmlFor="select">{t("Project Owner")}</label>
                 <input
                   type="text"
                   className="owner-dashboard"

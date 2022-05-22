@@ -18,5 +18,23 @@
   "reset": "रीसेट",
   "project_board": "परियोजना बोर्ड",
   "create_issues": "मुद्दे पैदा करें",
-  "create_projects": "प्रोजेक्ट बनाएं"
+  "create_projects": "प्रोजेक्ट बनाएं",
+
+  "Project Details": "परियोजना विवरण",
+  "Project Name": "परियोजना का नाम",
+  "Select": "चुनना",
+  "Project Owner": "परियोजना का मालिक",
+  "None": "कोई भी नहीं",
+  "Filter Asignee": "फ़िल्टर असाइनी",
+  "LOW": "कम",
+  "MEDIUM": "मध्यम",
+  "HIGH": "ऊँचा",
+  "Filter Priority": "फ़िल्टर प्राथमिकता",
+  "VIEW INSIGHT": "अंतर्दृष्टि देखें",
+  "Seems like you haven'nt created any project yet.": "लगता है आपने अभी तक कोई प्रोजेक्ट नहीं बनाया है।",
+  "Click here": "यहां क्लिक करें",
+  "to onboard a new project.": "किसी नए प्रोजेक्ट को ऑनबोर्ड करने के लिए।",
+  "Search": "खोज",
+  "My Profile": "मेरी प्रोफाइल",
+  "Sign Out": "साइन आउट"
 }

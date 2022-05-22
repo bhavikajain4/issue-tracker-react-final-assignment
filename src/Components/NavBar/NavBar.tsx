@@ -4,10 +4,12 @@ import { useDispatch } from "react-redux";
 import { authActions } from "../redux/authSlice";
 // import profile from "../../assests/images/profile.png";
 // import logout from "../../assests/images/logout.png";
+import { useTranslation } from "react-i18next";
 import "./NavBar.css";
 
 const NavBar = (props: any) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const [showDiv, setShowDiv] = useState(false);
   const handleProfile = () => {
     setShowDiv(!showDiv);
@@ -25,7 +27,7 @@ const NavBar = (props: any) => {
             <input
               type="search"
               className="search-navbar"
-              placeholder="Search"
+              placeholder={t("Search")}
             />
           </div>
         )}
@@ -37,8 +39,10 @@ const NavBar = (props: any) => {
             variant="secondary"
             title="Anjali Gupta"
           >
-            <Dropdown.Item>My Profile</Dropdown.Item>
-            <Dropdown.Item onClick={handleLogout}>Sign Out</Dropdown.Item>
+            <Dropdown.Item>{t("My Profile")}</Dropdown.Item>
+            <Dropdown.Item onClick={handleLogout}>
+              {t("Sign Out")}
+            </Dropdown.Item>
           </DropdownButton>
           {/* <p>Anjali Gupta</p>
           <img src={profile} alt="" onClick={handleProfile} />
