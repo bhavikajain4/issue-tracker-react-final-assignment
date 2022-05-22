@@ -9,6 +9,9 @@ import "./Login.css";
 import Language from "../Language/Language";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
+import { authActions } from "../redux/authSlice";
+
+import { useDispatch } from "react-redux";
 
 const Login = () => {
   const SignInSchema = Yup.object().shape({
@@ -22,6 +25,7 @@ const Login = () => {
     password: "",
   };
 
+  const dispatch = useDispatch();
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -56,7 +60,9 @@ const Login = () => {
               )
               .then((response: any) => {
                 console.log(response);
-                navigate("/dashboard");
+                localStorage.setItem("userId", response.data["userId"]);
+                window.location.href = "/dashboard";
+                dispatch(authActions.login());
               })
               .catch((error: any) => {
                 console.log(error.response.data["error"]);

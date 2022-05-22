@@ -1,0 +1,31 @@
+.text-home-no-project-page {
+  height: 40px;
+  left: 320px;
+  top: 134px;
+
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 34px;
+  line-height: 40px;
+  letter-spacing: 0.25px;
+
+  color: #1d262d;
+  margin: 5% 2%;
+}
+.link-no-project-page {
+  text-decoration: none;
+}
+.link-no-project-page p {
+  display: inline;
+  color: #fe7912;
+}
+.paragraph-no-project-page {
+  margin-left: 2%;
+  letter-spacing: 0.25px;
+  margin-top: -2%;
+}
+.img-no-project-page {
+  display: flex;
+  margin: 2% auto 0 auto;
+}
