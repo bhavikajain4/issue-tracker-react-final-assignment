@@ -1,0 +1,120 @@
+.text-home {
+  height: 40px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: bold;
+  line-height: 40px;
+  letter-spacing: 0.25px;
+  color: #1d262d;
+  margin: 5% 3%;
+  margin-bottom: 2%;
+  display: flex;
+  justify-content: space-between;
+}
+.dashboard-container {
+  display: flex;
+}
+.button-dashboard {
+  border: none;
+  background-color: #1d262d;
+  color: #fff;
+  border-radius: 5%;
+  padding: 0 50px;
+}
+.input-container-dashboard {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2%;
+}
+.select-dashboard {
+  width: 35vw;
+  height: 52px;
+  background: #f7f8fa;
+  border: none;
+  border-bottom: 1px solid #000;
+}
+.sidebar {
+  width: 30%;
+  height: 100vh;
+  background: #1d262d;
+  padding-top: 5%;
+}
+
+.sidebar a {
+  color: rgb(243, 234, 234);
+  padding: 16px;
+  text-decoration: none;
+  border-radius: 4px;
+  background: #28343e;
+  width: 90%;
+  display: flex;
+  margin: 10px auto 0 auto;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 5%;
+}
+.sideImg {
+  height: 50px;
+  width: 200px;
+  margin: 0 auto;
+  display: flex;
+}
+.link-div {
+  margin-top: 20%;
+}
+.active {
+  border-left: 5px solid #fe7912;
+}
+.link {
+  color: #fe7912;
+  font-size: 16px;
+  margin-bottom: -2px;
+  letter-spacing: 1px;
+}
+.owner-dashboard {
+  width: 35vw;
+  height: 52px;
+  background: #f7f8fa;
+  border: none;
+  border-bottom: 1px solid #000;
+}
+.project-dashboard {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 3%;
+  margin-right: 3%;
+}
+.filter-dashboard {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 3%;
+  margin-top: 2%;
+  width: 15vw;
+}
+.filter-container-dashboard {
+  width: 16.7vw;
+  height: 52px;
+  background: #f7f8fa;
+  border: none;
+  border-bottom: 1px solid #000;
+}
+#priority {
+  margin-left: 10%;
+}
+/* .status {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2%;
+  background: #f7f8fa;
+}
+.type {
+  color: #757575;
+  font-size: 12px;
+  padding-top: 1%;
+  line-height: 20px;
+  letter-spacing: 0.4px;
+} */
+/* .issue-list {
+  display: flex;
+  flex-direction: column;
+} */

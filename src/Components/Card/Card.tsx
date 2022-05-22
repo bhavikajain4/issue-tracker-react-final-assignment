@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import profile from "../../assests/images/profile.png";
+// import profile from "../../assests/images/profile.png";
 import "./Card.css";
 export interface Issue {
   assignee: assignee;
@@ -51,7 +51,7 @@ const Card = (props: any) => {
       </div>
       <div className="assignee-details">
         <div className="assignee-name">
-          <img src={profile} alt="" /> {props.issue.assignee.name}
+          <img src="" alt="" /> {props.issue.assignee.name}
         </div>
         <div className="issue-priority">
           <p className="priority">{t("Priority")}</p>
