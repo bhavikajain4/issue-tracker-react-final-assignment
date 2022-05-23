@@ -113,7 +113,7 @@ const Create_Issue = () => {
                   }
                 )
                 .then((response: any) => {
-                  localStorage.setItem("issueId", response.data["issueId"]);
+                  // localStorage.setItem("issueId", response.data["issueId"]);
                   navigate("/dashboard");
                 });
             }}
